@@ -1,0 +1,23 @@
+{
+	"name": "komicho/packagist",
+	"type": "library",
+	"description": "Analyze packages within the project",
+	"keywords": ["php", "packages", "packagist", "komicho"],
+	"homepage": "https://github.com/komichoNinja/packagist",
+	"authors": [
+		{
+			"name": "komicho",
+			"email": "komicho1996@gmail.com",
+			"homepage": "https://komicho.github.io/",
+			"role": "Developer"
+		}
+	],
+	"require": {
+        "guzzlehttp/guzzle": "^6.3"
+    },
+	"autoload": {
+		"psr-4": {
+			"komicho\\": "/src"
+		}
+	}
+}
