@@ -1,9 +1,9 @@
 {
-	"name": "komicho/packagist",
+	"name": "komicho/laraveliid",
 	"type": "library",
 	"description": "Analyze packages within the project",
-	"keywords": ["php", "packages", "packagist", "komicho"],
-	"homepage": "https://github.com/komichoNinja/packagist",
+	"keywords": ["php", "laravel", "iid", "komicho"],
+	"homepage": "https://github.com/komichoNinja/laraveliid",
 	"authors": [
 		{
 			"name": "komicho",
