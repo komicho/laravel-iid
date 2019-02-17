@@ -12,7 +12,7 @@ trait laraveliid
         $connectionName = \DB::connection()->getPDO()->getAttribute(\PDO::ATTR_DRIVER_NAME);
         $isColExist = Schema::connection($connectionName)->hasColumn($tableName, 'iid');
         if (!$isColExist) {
-            throw new \Exception("Error Processing Request", 1);
+            throw new \Exception('Komicho : The `iid` column was not found in `'.$tableName.'` table.');
         }
     }
 
