@@ -1,10 +1,10 @@
 <?php
 
-namespace komicho\Traits;
+namespace Komicho\Laravel\Traits;
 
 use Illuminate\Support\Facades\Schema;
 
-trait laraveliid
+trait LaravelIid
 {
     public static function checkHaveColumn()
     {

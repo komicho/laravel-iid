@@ -3,7 +3,7 @@ Build a separate disambiguation for specific categories (IID) . [wikipedia](http
 
 ## use
 ```php
-use komicho\Traits\laraveliid;
+use Komicho\Laravel\Traits\LaravelIid;
 ```
 
 ---
@@ -40,11 +40,11 @@ Specify a sequence for each project.
 ```php
 <?php
 
-use komicho\Traits\laraveliid;
+use Komicho\Laravel\Traits\LaravelIid;
 
 class Backlog extends Model
 {
-    use laraveliid;
+    use LaravelIid;
 
     protected static $guideColumn = 'project_id';
     

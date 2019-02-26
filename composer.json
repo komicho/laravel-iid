@@ -1,9 +1,9 @@
 {
 	"name": "komicho/laravel-iid",
 	"type": "library",
-	"description": "Analyze packages within the project",
+	"description": " Build a separate disambiguation for specific categories (IID) - Laravel",
 	"keywords": ["php", "laravel", "iid", "komicho"],
-	"homepage": "https://github.com/komichoNinja/laraveliid",
+	"homepage": "https://github.com/komichoNinja/laravel-iid",
 	"authors": [
 		{
 			"name": "komicho",
@@ -14,7 +14,7 @@
 	],
 	"autoload": {
 		"psr-4": {
-			"komicho\\": "/src"
+			"Komicho\\Laravel\\": "/src"
 		}
 	}
 }
