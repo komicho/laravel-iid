@@ -29,7 +29,6 @@ trait LaravelIid
             $data['iid'] = $getFirst->iid+1;
         }
         
-        self::create($data);
-        return $data['iid'];
+        return self::create($data);
     }
 }
