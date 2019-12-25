@@ -9,9 +9,9 @@ use Komicho\Laravel\Traits\LaravelIid;
 ---
 
 ## functions
-### createiid
+### create
 ```php
-Model::createiid($data);
+Model::create($data);
 ```
 
 ---
@@ -19,7 +19,7 @@ Model::createiid($data);
 ## variables
 ### $guideColumn
 ```php
-protected static $guideColumn = '<column_name>';
+protected $guideColumn = '<column_name>';
 ```
 Type the name of the column through which the group sequence is selected.
 
@@ -46,7 +46,7 @@ class Backlog extends Model
 {
     use LaravelIid;
 
-    protected static $guideColumn = 'project_id';
+    protected $guideColumn = 'project_id';
     
     ...
 }
@@ -68,7 +68,7 @@ class BacklogController extends Controller
 
     public function store(Request $request)
     {
-        Backlog::createiid($request->all());
+        Backlog::create($request->all());
         return back();
     }
 

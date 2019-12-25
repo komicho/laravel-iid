@@ -6,29 +6,29 @@ use Illuminate\Support\Facades\Schema;
 
 trait LaravelIid
 {
-    public static function checkHaveColumn()
+    protected static function boot()
     {
-        $tableName = with(new static)->getTable();
-        $connectionName = \DB::connection()->getPDO()->getAttribute(\PDO::ATTR_DRIVER_NAME);
-        $isColExist = Schema::connection($connectionName)->hasColumn($tableName, 'iid');
-        if (!$isColExist) {
-            throw new \Exception('Komicho : The `iid` column was not found in `'.$tableName.'` table.');
-        }
-    }
+        parent::boot();
 
-    public static function createiid($data)
-    {
-        self::checkHaveColumn();
+        static::creating(function ($model) {
 
-        $guideColumn = self::$guideColumn;
-        $getFirst = self::where($guideColumn, '=', $data[$guideColumn])->orderBy('id', 'DESC')->first();
-        
-        if (!$getFirst) {
-            $data['iid'] = 1;
-        } else {
-            $data['iid'] = $getFirst->iid+1;
-        }
-        
-        return self::create($data);
+            $isColExist = Schema::connection(env('DB_CONNECTION'))->hasColumn($model->getTable(), 'iid');
+
+            if (!$isColExist) {
+                throw new \Exception('Komicho : The `iid` column was not found in `'.$model->getTable().'` table.');
+            }
+
+            $getFirst = $model->where($model->guideColumn, '=', $model[$model->guideColumn])
+                ->where('iid', '!=', 'NULL')
+                ->orderBy('id', 'DESC')
+                ->first();
+
+            if (!$getFirst) {
+                $model['iid'] = 1;
+            } else {
+                $model['iid'] = $getFirst->iid+1;
+            }
+
+        });
     }
 }
